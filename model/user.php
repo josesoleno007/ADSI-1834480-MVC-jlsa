@@ -100,6 +100,13 @@
                return false;
                }
           } 
+
+          public function lastAccess($id)
+          {                
+               $dateTime = date('Y-m-d h:i:s');
+               $stm = $this->pdo->prepare("UPDATE users SET lastAccess = ? WHERE id = ?");
+               $stm->execute(array($dateTime, $id));
+          }            
                     
 	} 
 ?>     

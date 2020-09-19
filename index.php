@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/Bogota');
 require_once 'model/database.php';
 $controller = 'user';
 if (!isset($_SESSION['idUser'])) {

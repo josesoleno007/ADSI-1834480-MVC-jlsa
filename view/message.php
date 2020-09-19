@@ -1,6 +1,6 @@
 <?php
 	
-	$msg = null;
+	
 	if (isset($_REQUEST['m'])) {
 		$msg = $_REQUEST['m'];
 		if ($_REQUEST['e'] == 0) {

@@ -92,12 +92,20 @@
 		}
 
 		public function validate($email, $password)
-		{
-			 $row = $this->model->validate($email, $password); 
-			 if ($row != false) {
-			 	$_SESSION['idUser'] = $row->id;
+		{	
+			$msg = 'Datos de ingreso herrados';
+			$err = 1;
+
+			$row = $this->model->validate($email, $password); 
+			if ($row != false) {
+				$this->model->lastAccess($row->id);
+				$_SESSION['idUser'] = $row->id;
 				$_SESSION['nameUser'] = $row->name;
-			 }
+				$msg = 'Bienvenido al Sistema';
+				$err = 0;
+				//$msg = Database::encryptor('encrypt', 'Bienvenido al Sistema');
+				//$err = Database::encryptor('encrypt', 0);
+			}
 				
 			header('location: index.php');
 		}
@@ -108,9 +116,9 @@
 			if (ini_get("session.use_cookies")) {
 			 	$params = session_get_cookie_params();
 			 	setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-			 } 
-			 session_destroy();
-			 header('location: index.php');
+			} 
+			session_destroy();
+			header('location: index.php');
 		}
 
 	}
