@@ -25,9 +25,11 @@ if (!isset($_SESSION['idUser'])) {
     	$controller->dashboard();
     }
     else
-    {
-    	$controller = strtolower($_REQUEST['c']);
-    	$action     = strtolower($_REQUEST['a']);
+    {   
+        $c = Database::encryptor('decrypt', $_REQUEST['c']);  
+        $a = Database::encryptor('decrypt', $_REQUEST['a']); 
+    	$controller = strtolower($c);
+    	$action     = strtolower($a);
 
     	require_once "controller/$controller.controller.php";
     	$controller = ucwords($controller).'Controller';     

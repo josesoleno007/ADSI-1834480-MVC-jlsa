@@ -40,14 +40,9 @@
                     <h1 class="h4 text-gray-900 mb-4">MVC by ADSI!</h1>
                   </div>
 
-                  <?php
+                  
 
-                  $c = Database::encryptor('encrypt', 'user');
-                  $a = Database::encryptor('encrypt', 'validate');
-
-                  ?>
-
-                  <form class="user" method="post" action="index.php?c=<?=$c?>&a=<?=$a?>">
+                  <form class="user" method="post" action="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'validate')?>">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" placeholder="Ingrese el Email...">
                     </div>

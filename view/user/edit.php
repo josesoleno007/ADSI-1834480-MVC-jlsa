@@ -8,7 +8,7 @@
                 <img style="width: 300px; height: 300px;" src="assets/img/logoAdsi.jpg" alt=""><br><br>
                 <h1 class="h4 text-gray-900 mb-4"><?=$button?></h1>
               </div>
-              <form class="user" method="post" action="index.php?c=user&a=crud">
+              <form class="user" method="post" action="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'crud')?>">
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="name" value="<?=$name?>" name="name" placeholder="Nombre del Usuario">

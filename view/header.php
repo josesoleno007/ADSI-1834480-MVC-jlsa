@@ -41,9 +41,10 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="index.php?c=user&a=index">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Usuarios</span></a>
+            
+            <a class="nav-link" href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'index')?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Usuarios</span></a>
         </li>
 
         <!-- Divider -->

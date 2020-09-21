@@ -41,7 +41,7 @@
             <div class="modal-body">Esta seguro que desea cerrar sesion?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-warning" href="index.php?c=user&a=logout">Aceptar</a>
+                <a class="btn btn-warning" href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'logout')?>">Aceptar</a>
             </div>
         </div>
     </div>

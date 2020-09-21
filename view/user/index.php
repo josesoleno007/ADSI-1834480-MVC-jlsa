@@ -5,7 +5,7 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
              
-              <a href="index.php?c=user&a=edit" class="btn btn-primary btn-icon-split">
+              <a href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'edit')?>" class="btn btn-primary btn-icon-split">
                  <span class="icon text-white-50">
                    <i class="fas fa-user-plus"></i>
                  </span> 
@@ -18,7 +18,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Numero</th>
+                      <th>Numero de id</th>
                       <th>Nombre</th>
                       <th>Email</th>
                       <th>Rol</th>
@@ -29,7 +29,7 @@
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Numero</th>
+                      <th>Numero de id</th>
                       <th>Nombre</th>
                       <th>Email</th>
                       <th>Rol</th>
@@ -55,10 +55,10 @@
                       <td><?=$row->level?></td>
                       <td><?=$row->active?></td>
                       <td><?=$row->lastAccess?></td>
-                      <td><a href="index.php?c=user&a=edit&id=<?=$row->id?>" class="btn btn-success btn-circle">
+                      <td><a href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'edit')?>&id=<?=$row->id?>" class="btn btn-success btn-circle">
                             <i class="fas fa-user-edit"></i>
                           </a>
-                          <a href="index.php?c=user&a=delete&id=<?=$row->id?>" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#logoutModal<?=$num?>">
+                          <a href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'delete')?>&id=<?=$row->id?>" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#logoutModal<?=$num?>">
                             <i class="fas fa-trash"></i>
                           </a> 
                           <!-- Delete Modal-->
@@ -73,10 +73,10 @@
                                               <span aria-hidden="true">×</span>
                                           </button>
                                       </div>
-                                      <div class="modal-body">Esta seguro que desea eliminar a este usuario?</div>
+                                      <div class="modal-body">Esta seguro que desea eliminar a este usuario?<br>Si borra a este usuario se borrara permanentemente del sistema.</div>
                                       <div class="modal-footer">
                                           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                            <a class="btn btn-danger" href="index.php?c=user&a=delete&id=<?=$row->id?>">
+                                            <a class="btn btn-danger" href="index.php?c=<?=Database::encryptor('encrypt', 'user')?>&a=<?=Database::encryptor('encrypt', 'delete')?>&id=<?=$row->id?>">
                                             <i class="fa fa-trash"></i>&nbsp;&nbsp;
                                             Eliminar
                                           </a>
